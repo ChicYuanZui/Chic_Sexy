@@ -1,0 +1,132 @@
+/* pages/me/me-list/me-list.wxss */
+@import "/pages/news/news-item/news-item.wxss";
+.news{
+  width: 100%;
+}
+.news-item{
+  width: 723rpx;
+  height: 420rpx;
+  position: relative;
+  display: flex;
+  margin:0 auto 20rpx;
+  overflow: hidden; 
+  border-radius: 20rpx;
+}
+.yjs{
+  position: absolute;
+  top: 0;
+  width:80rpx;
+  height: 80rpx;
+}
+.box{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 338rpx;
+  height: 46rpx;
+}
+.title{
+  position: absolute;
+  bottom: 0;
+  right: 293rpx;
+  border-width: 47rpx;
+  border-style: solid;
+  border-color: transparent  transparent #f1093b transparent;
+}
+.news-title{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 338rpx;
+  color: #fff;
+  background-color: #f1093b;
+  font-size: 36rpx;
+  border-bottom-right-radius: 20rpx;
+}
+/* @media screen and (max-width: 321px) {
+      .news-item{
+        width: 100%;
+      }
+    .box{
+        width: 50%;
+        height: 30px;      
+    }
+    .title{
+      float: left;
+      border-width: 26px;
+      border-style: solid;
+      border-color: transparent  transparent #f1093b transparent;
+    }
+    .news-title{
+      font-size: 12px;
+      width: 135px;
+      padding: 5px 0 5px 0;
+    }
+}
+@media screen and (max-width: 361px) and (min-width: 321px) {
+    .box{
+        width: 50%;
+    }
+    .title{
+      float: left;
+      border-width: 26px;
+      border-style: solid;
+      border-color: transparent  transparent #f1093b transparent;
+    }
+    .news-title{
+      font-size: 12px;
+      width: 142px;
+      padding: 5px 0 5px 0;
+    }
+}
+@media screen and (max-width: 376px) and (min-width: 361px) {
+    .box{
+        width: 50%;
+        height: 26px;        
+    }
+    .title{
+      float: left;
+      border-width: 30px;
+      border-style: solid;
+      border-color: transparent  transparent #f1093b transparent;
+    }
+    .news-title{
+      font-size: 12px;
+      width: 136px;
+      padding: 5px 0 5px 0;
+    }
+}
+@media screen and (max-width: 415px) and (min-width: 376px) {
+    .box{
+        width: 50%;
+        height: 26px;        
+    }
+    .title{
+      float: left;
+      border-width: 40px;
+      border-style: solid;
+      border-color: transparent  transparent #f1093b transparent;
+    }
+    .news-title{
+      font-size: 12px;
+      width: 136px;
+      padding: 5px 0 5px 0;
+    }
+} */
+.news-poster{
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.hide{
+  display: none;
+}
+.display{
+  display: block;
+}
+.button_tips{
+  font-size: 11px;
+  color: #F1093B;
+  text-align: center;
+  margin-bottom: 3px;
+}

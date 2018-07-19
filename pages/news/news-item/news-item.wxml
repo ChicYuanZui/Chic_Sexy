@@ -1,0 +1,11 @@
+<template name="newsItem">
+
+    <view  class='news-item' data-index="{{index}}" data-id="{{item.id}}" bindtap="toDetail">
+        <view class="box">
+            <text class="title"></text>
+            <text class='news-title'>{{item.name}}<text class='news-title-text'>{{item.create_time}}</text></text>
+        </view>
+        <image class='news-poster' src='{{item.pic}}' mode="widthFix"></image>
+    </view>
+
+</template>

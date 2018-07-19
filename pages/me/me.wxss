@@ -1,0 +1,67 @@
+/* pages/me/me.wxss */
+.me{
+    width: 100%;
+}
+.me .container{
+    width: 100%;
+    height: 432rpx;
+    /* padding: 0 40rpx 0 40rpx; */
+    padding-top: 100rpx;
+    text-align: center;
+}
+.container .userinfo-avatar{
+    display: block;
+    width: 136rpx;
+    height: 136rpx;
+    margin-bottom: 30rpx;
+    border-radius:  50%;
+}
+.me-bd{
+    padding: 0 74rpx 0 76rpx;
+}
+
+.bd-jiesuo{
+    width: 600rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    margin-bottom: 20rpx;
+    border-radius: 20rpx;
+    background-color: #ff3863;
+}
+.bd-jiesuo .jiantou{
+    float: right;
+    margin-top: 36rpx;
+    margin-right: 50rpx;
+    width: 24rpx;
+    height: 24rpx;
+}
+.bd-jiesuo text{
+    float: right;
+    margin-right: 50rpx;
+    font-size: 40rpx;
+    color: #fff;
+}
+.bd-wenti{
+    float: right;
+    width: 516rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    border-radius: 20rpx;    
+    background-color: #ff3863;
+}
+
+.bd-wenti .jiantou{
+    float: right;
+    margin-top: 36rpx;
+    margin-right: 50rpx;
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align:middle;
+}
+.bd-wenti text{
+    float: right;
+    margin-right: 88rpx;
+    font-size: 40rpx;
+    color: #fff;
+    vertical-align:middle;
+}

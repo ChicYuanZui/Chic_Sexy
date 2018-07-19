@@ -1,0 +1,52 @@
+<!--pages/news/news-detail/news-detail.wxml-->
+<view class="news-detail">
+    <view class='detail-header'>
+        <view wx:for='{{imgArr}}'  wx:for-item="item" wx:for-index="index" class="imgList">
+            <image class='img' data-src='{{item.path}}' src='{{item.path}}'  data-index='{{index}}' bindtap='previewImg' mode="widthFix"></image>
+            <view wx:if="{{index > img}}" data-index='{{index}}' class="zz"  >
+                <image class="masaike"  src='{{item.path}}'  mode="widthFix"></image>
+                <image class="imgL" src="../../../images/weijiesuo.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="yghz" hidden="{{shows}}"></view>
+    <view class="detail-footer" hidden="{{jiesuo}}">
+        <button class="con-button" hover-class="btn-hover" type="primary" bindtap="actioncnt" open-type="getUserInfo" bindgetuserinfo="getUserInfo">解锁全部</button>
+    </view>
+    <view class="modal-box" hidden="{{mHidden}}">
+        <view class="modal-content">
+            <image class="guanbi" src="../../../images/guanbi.png" bindtap="hide"></image>
+            <text class="tishi">每日首次分享可解锁该套图</text>
+            <button class="fenxiang" hover-class="btn-hover" data-id="{{item.id}}" open-type="share">分享</button>
+            <button class="fufei" hover-class="btn-hover" bindtap="fufei">付费</button>
+        </view>
+    </view>
+    <view class="fufei-box" hidden="{{show}}">
+        <view class="fufei-content">
+            <image class="guanbi" src="../../../images/guanbi.png" bindtap="hidden"></image>
+            <text class="ffgn">付费功能</text>
+            <text class="fuli">
+                <!-- <text style="text-decoration:line-through">支付一元一次</text>
+                <text style="color:#ff3863">(限时免费)</text> -->
+                <text>支付一元一次,解锁以下福利</text>
+            </text>
+            <text class="fl">1.解锁剩余{{length-8}}张性感图片</text>
+            <text class="fl">2.开启图片浏览模式</text>
+            <text class="fl">3.图片可以下载</text>
+            <view class="fufei">
+            <button hover-class="btn-hover" style="font-size:16px;color:#fff;" bindtap="pay">购买图集</button>
+            </view>
+        </view>
+    </view>
+    <view class="dianzan" hidden="{{dianzan}}" bindtap="dianzan">
+        <view hidden="{{weidian}}" class="dz">
+            <image  src="../../../images/weidian.png" bindtap="weidian"></image>
+            <text>{{spotNum}}</text>
+        </view>
+        <view hidden="{{yidian}}" class="dz">
+            <image  src="../../../images/yidian.png" bindtap="yidian"></image>
+            <text>{{spotNum}}</text>
+        </view>
+        <button class="xiayizu" hover-class="btn-hover" bindtap="xiazu">下一组</button>
+    </view>
+</view>

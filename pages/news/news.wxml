@@ -1,0 +1,11 @@
+<!--pages/news/news.wxml-->
+<import src="news-item/news-item.wxml" />
+<view class="news">
+  <view class="khz"></view>
+  <view class="news__hd" bindtap="navigate">
+    <block wx:for="{{box}}"  wx:key="{{index}}">
+      <template is="newsItem" data="{{item}}"></template>
+    </block>
+  </view>
+</view>
+<view class="button_tips {{button_tips}}">我是有底线的~</view>

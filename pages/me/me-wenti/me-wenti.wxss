@@ -1,0 +1,23 @@
+/* pages/me/me-wenti/me-wenti.wxss */
+.me{
+    width: 100%;
+}
+.container{
+    margin: 0 auto;
+    padding: 80rpx 0 0 0;
+}
+.box{
+    width: 670rpx;
+    margin-bottom: 60rpx;
+}
+.box .tm{
+  display: block;
+  font-size: 16px;
+  font-weight: blod;
+  color: #3B3D44;
+}
+.box .da{
+  display: block;
+  font-size: 14px;
+  color: #6A6F7A;
+}

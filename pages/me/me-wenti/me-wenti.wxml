@@ -1,0 +1,30 @@
+<!--pages/me/me-wenti/me-wenti.wxml-->
+<view class="me">
+    <view class="container">
+        <view class="box">
+            <text class='tm'>这个小程序是什么</text>
+            <text class='da'>这里是提供性感高雅的图集,请以欣赏的眼光体验。</text>
+        </view>
+        <view class="box">
+            <text class='tm'>付费功能</text>
+            <text class='da'>每套图集可以欣赏前8张图片，剩余图片需付费解锁。付费后可以尽情浏览整套图集，并保存图片至手机。</text>
+        </view>
+        <view class="box">
+            <text class='tm'>分享方式</text>
+            <text class='da'>每个自然日的第一次分享可以解锁一套图集，通过分享解锁的图集与付费解锁享有同样功能。但一天只限解锁一次，也就是解锁一个套图。
+您也可以直接将小程序分享给您的好友、社群或朋友圈。</text>
+        </view>
+        <view class="box">
+            <text class='tm'>解锁后的图集</text>
+            <text class='da'>解锁后的图集可永久保存在您的个人中心内，请保证您已经开启微信登录授权。</text>
+        </view>
+        <view class="box">
+            <text class='tm'>图片无法加载</text>
+            <text class='da'>我们会保证在图片清晰的情况下，尽可能的优化图片大小，同时也请检查您的网络连接情况。</text>
+        </view>
+        <view class="box">
+            <text class='tm'>如何关联这个小程序</text>
+            <text class='da'>发送邮件至xingganji@yeah.net，邮件标题为“小程序关联”，邮件内请附上您的信息及联系方式。</text>
+        </view>
+    </view>
+</view>

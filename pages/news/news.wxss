@@ -1,0 +1,20 @@
+/* pages/news/news.wxss */
+@import "news-item/news-item.wxss";
+.news{
+  width: 100%;
+}
+.khz{
+  height: 30rpx;
+}
+.hide{
+  display: none;
+}
+.display{
+  display: block;
+}
+.button_tips{
+  font-size: 11px;
+  color: #F1093B;
+  text-align: center;
+  margin-bottom: 3px;
+}

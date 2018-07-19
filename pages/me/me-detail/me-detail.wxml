@@ -1,0 +1,23 @@
+<!--pages/me/me-detail/me-detail.wxml-->
+<view class="news-detail">
+    <view class='detail-header'>
+        <view wx:for='{{imgArr}}'  wx:for-item="item" wx:for-index="index" class="imgList">
+            <image class='img' data-src='{{item.path}}' src='{{item.path}}'  data-index='{{index}}' bindtap='previewImg' mode="widthFix"></image>
+            <view wx:if="{{index > img}}" data-index='{{index}}' class="zz"  >
+                <image class="masaike"  src='{{item.path}}'  mode="widthFix"></image>
+                <image class="imgL" src="../../../images/weijiesuo.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="dianzan" hidden="{{dianzan}}" bindtap="dianzan">
+        <view hidden="{{weidian}}" class="dz">
+            <image  src="../../../images/weidian.png" bindtap="weidian"></image>
+            <text>{{spotNum}}</text>
+        </view>
+        <view hidden="{{yidian}}" class="dz">
+            <image  src="../../../images/yidian.png" bindtap="yidian"></image>
+            <text>{{spotNum}}</text>
+        </view>
+        <button class="xiayizu" hover-class="btn-hover" bindtap="xiazu">下一组</button>
+    </view>
+</view>

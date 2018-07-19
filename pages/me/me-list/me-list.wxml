@@ -1,0 +1,17 @@
+<!--pages/me/me-list/me-list.wxml-->
+<view class="news">
+    <view class="khz"></view>
+    <view class="news__hd" bindtap="navigate">
+        <block wx:for="{{box}}" wx:key="{{index}}">
+                <view  class='news-item' data-id="{{item.id}}" bindtap="toDetail">
+                    <image class="yjs" src="../../../images/yijiesuo.png"></image>
+                    <view class="box">
+                        <text class="title"></text>
+                        <text class='news-title'>{{item.name}}{{item.create_time}}</text>
+                    </view>
+                    <image class='news-poster' src='{{item.pic}}' mode="widthFix"></image>
+                </view>
+        </block>
+    </view>
+</view>
+<view class="button_tips {{button_tips}}">你只解锁了这些~</view>
