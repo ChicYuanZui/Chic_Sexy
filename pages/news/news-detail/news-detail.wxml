@@ -34,7 +34,12 @@
             <text class="fl">2.开启图片浏览模式</text>
             <text class="fl">3.图片可以下载</text>
             <view class="fufei">
-            <button hover-class="btn-hover" style="font-size:16px;color:#fff;" bindtap="pay">购买图集</button>
+            <view hidden="{{ios}}">
+              <button open-type="contact" hover-class="btn-hover" style="font-size:16px;color:#fff;">购买图集</button>
+            </view>
+            <view hidden="{{android}}">
+              <button hover-class="btn-hover" style="font-size:16px;color:#fff;" bindtap="pay">购买图集</button>
+            </view>
             </view>
         </view>
     </view>

@@ -1,4 +1,4 @@
-// https://stu.chicyuanzui.com// pages/news/news-detail/news-detail.js
+ // https://stu.chicyuanzui.com// pages/news/news-detail/news-detail.js
 // var detailList = require("../../../mockData/newsData.js")
 const app = getApp();
 Page({
@@ -26,7 +26,12 @@ Page({
     clientHeight: 0,
     arr: [],
     arrHight: [],
-    aaaa:''
+    ios:false,
+    android:false,
+    timeStamp: "",
+    nonceStr: "",
+    packAge: "",
+    paySign: ""
   },
   onReady:function(){
     console.log('onReady执行的顺序')
@@ -596,16 +601,21 @@ Page({
     });
   },
   fufei: function() {
-    console.log(getApp())
-    wx.request({
-      url: 'https://stu.chicyuanzui.com/stunner/Orderh/pay_photo_order',
-      data: {
-        photo_id: getApp().globalData.id,
-        token: getApp().globalData.token
-      },
-      method: "GET",
+    var that =this;
+    wx.getSystemInfo({
       success: function (res) {
-        console.log(res)
+        console.log(res.system.substring(0,3));
+        if (res.system.substring(0,3) == "iOS") {
+          that.setData({
+            ios: false,
+            android:true
+          });
+        }else{
+          that.setData({
+            ios: true,
+            android: false
+          });
+        }
       }
     })
     this.setData({
@@ -731,7 +741,66 @@ Page({
       success: function(res) {
         if (res.code) {
           wx.request({
-            url: "https://stu.chicyuanzui.com/stunner/orderh/create",
+            url: "https://stu.chicyuanzui.com/stunner/orderh/add_pay_order_new",
+            data: {
+              photo_id: getApp().globalData.id,
+            },
+            method:"GET",
+            header: {
+              token: getApp().globalData.token
+            },
+            success: function (res) {
+              console.log(res);
+              that.setData({
+                timeStamp: res.data.data.pay.timeStamp,
+                nonceStr: res.data.data.pay.nonceStr,
+                packAge: res.data.data.pay.package,
+                paySign: res.data.data.pay.paySign
+              });
+              wx.request({
+                url: "https://stu.chicyuanzui.com/stunner/orderh/get_user_data",
+                data: {
+                  photo_id: getApp().globalData.id,
+                },
+                method: "GET",
+                header: {
+                  token: getApp().globalData.token
+                },
+                success: function (res) {
+                  if (res.data.data.unlock_frequency != 0){
+                    that.balancePay();
+                  }else{
+                    wx.requestPayment({
+                      timeStamp: that.data.timeStamp,
+                      nonceStr: that.data.nonceStr,
+                      package: that.data.packAge,
+                      signType: "MD5",
+                      paySign: that.data.paySign,
+                      success: function (res) {
+                        // success
+                        console.log(res);
+                      },
+                      fail: function (res) {
+                        // fail
+                        console.log(res);
+                      }
+                    }); 
+                  }
+                }
+              })
+            }
+          })
+        } else {
+          console.log("获取用户登录态失败！" + res.errMsg);
+        }
+      }
+    });
+  },
+  //有余额支付function
+  balancePay:function(){
+    var that = this;
+    wx.request({
+            url:"https://stu.chicyuanzui.com/stunner/Orderh/pay_photo_order",
             data: {
               photo_id: getApp().globalData.id,
               amount: 0,
@@ -742,32 +811,6 @@ Page({
               token: getApp().globalData.token
             },
             success: function(res) {
-              that.setData({
-                aaaa: '1',
-              });
-              wx.getSystemInfo({
-                success: function (res) {
-                  console.log(res.platform)
-                  console.log(that.data.aaaa)
-                }
-              })
-              // console.log(res.data);
-              /* wx.requestPayment({
-                timeStamp: "",
-                nonceStr: "",
-                package: "",
-                signType: "MD5",
-                paySign: "",
-                success: function(res) {
-                  // success
-                  // console.log(res);
-                },
-                fail: function(res) {
-                  // fail
-                  // console.log(res);
-                }
-              }); */
-
               var box = res.data.data.unlock;
               // console.log(res.data.data.unlock);
               that.setData({
@@ -799,11 +842,6 @@ Page({
               }
             }
           });
-        } else {
-          console.log("获取用户登录态失败！" + res.errMsg);
-        }
-      }
-    });
   },
   //点赞
   dianzan: function(e) {

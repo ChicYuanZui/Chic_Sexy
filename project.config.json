@@ -4,14 +4,13 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"minified": false,
+		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
-	"appid": "wx5a2767ec659ee1c9",
-	"projectname": "youwu",
-	"isGameTourist": false,
+	"libVersion": "1.6.6",
+	"appid": "wx4d7858dfd53e8f0e",
+	"projectname": "ChicSexy",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -19,10 +18,6 @@
 		},
 		"conversation": {
 			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
