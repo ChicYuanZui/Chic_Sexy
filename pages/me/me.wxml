@@ -18,11 +18,11 @@
             <image class="jiantou" src="/images/jiantou.png"></image>
             <text>常见问题</text>
         </view>
-        <view class="bd-wenti" >
+        <!-- <view class="bd-wenti" >
             <button session-from="tujipay" open-type="contact">支付按钮</button>
         </view>
         <view class="bd-wenti" >
             <button open-type="contact">客服会话</button>
-        </view>
+        </view> -->
     </view>
 </view>

@@ -12,10 +12,17 @@ Page({
     next_data: 'yes',
     button_tips:'hide'
   },
+  onLoad:function(){
+    wx.showLoading({
+      title: '正在加载'
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
+  },
   onShow: function(res) {
     // 调取统一数据获取函数
     get_list(this)
-
   },
   toDetail: function(event) {
 

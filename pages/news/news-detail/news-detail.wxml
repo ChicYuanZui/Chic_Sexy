@@ -28,14 +28,21 @@
             <text class="fuli">
                 <!-- <text style="text-decoration:line-through">支付一元一次</text>
                 <text style="color:#ff3863">(限时免费)</text> -->
-                <text>支付一元一次,解锁以下福利</text>
+                <text>支付</text>
+                <text style="color:#ed3c61;font-weight:600" decode="nbsp">&nbsp;1&nbsp;</text>
+                <text>元一次,解锁以下福利 </text>
             </text>
             <text class="fl">1.解锁剩余{{length-8}}张性感图片</text>
             <text class="fl">2.开启图片浏览模式</text>
             <text class="fl">3.图片可以下载</text>
             <view class="fufei">
             <view hidden="{{ios}}">
-              <button open-type="contact" hover-class="btn-hover" style="font-size:16px;color:#fff;">购买图集</button>
+              <view hidden="{{yue}}">
+                <button hover-class="btn-hover" bindtap="pay" style="font-size:16px;color:#fff;">购买图集</button>
+              </view>
+              <view hidden="{{noYue}}">
+                <button open-type="contact" hover-class="btn-hover" style="font-size:16px;color:#fff;">点击回复'1',进行购买</button>
+              </view>
             </view>
             <view hidden="{{android}}">
               <button hover-class="btn-hover" style="font-size:16px;color:#fff;" bindtap="pay">购买图集</button>

@@ -31,7 +31,9 @@ Page({
     timeStamp: "",
     nonceStr: "",
     packAge: "",
-    paySign: ""
+    paySign: "",
+    yue:true,
+    noYue:true
   },
   onReady:function(){
     console.log('onReady执行的顺序')
@@ -326,7 +328,47 @@ Page({
   //弹窗
   actioncnt: function() {
     var that = this
-
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.platform)
+        console.log(res.system.substring(0, 3));
+        if (res.platform == "ios") {
+          that.setData({
+            ios: false,
+            android: true
+          });
+        } else {
+          that.setData({
+            ios: true,
+            android: false
+          });
+        }
+      }
+    });
+    wx.request({
+      url: "https://stu.chicyuanzui.com/stunner/orderh/get_user_data",
+      data: {
+        photo_id: getApp().globalData.id,
+      },
+      method: "GET",
+      header: {
+        token: getApp().globalData.token
+      },
+      success: function (res) {
+        console.log(res.data.data.unlock_frequency)
+        if (res.data.data.unlock_frequency != 0) {
+          that.setData({
+            yue: false,
+            noYue: true
+          })
+        } else {
+          that.setData({
+            yue: true,
+            noYue: false
+          })
+        }
+      }
+    });
     /*wx.login({
       success: function (res) {
         // console.log(res.data)
@@ -602,22 +644,6 @@ Page({
   },
   fufei: function() {
     var that =this;
-    wx.getSystemInfo({
-      success: function (res) {
-        console.log(res.system.substring(0,3));
-        if (res.system.substring(0,3) == "iOS") {
-          that.setData({
-            ios: false,
-            android:true
-          });
-        }else{
-          that.setData({
-            ios: true,
-            android: false
-          });
-        }
-      }
-    })
     this.setData({
       show: false
     });
@@ -757,17 +783,17 @@ Page({
                 packAge: res.data.data.pay.package,
                 paySign: res.data.data.pay.paySign
               });
-              wx.request({
-                url: "https://stu.chicyuanzui.com/stunner/orderh/get_user_data",
-                data: {
-                  photo_id: getApp().globalData.id,
-                },
-                method: "GET",
-                header: {
-                  token: getApp().globalData.token
-                },
-                success: function (res) {
-                  if (res.data.data.unlock_frequency != 0){
+              // wx.request({
+              //   url: "https://stu.chicyuanzui.com/stunner/orderh/get_user_data",
+              //   data: {
+              //     photo_id: getApp().globalData.id,
+              //   },
+              //   method: "GET",
+              //   header: {
+              //     token: getApp().globalData.token
+              //   },
+              //   success: function (res) {
+                  if (!that.data.yue){
                     that.balancePay();
                   }else{
                     wx.requestPayment({
@@ -779,6 +805,14 @@ Page({
                       success: function (res) {
                         // success
                         console.log(res);
+                        that.setData({
+                          img: 99,
+                          jiesuo: true,
+                          mHidden: true,
+                          show: true,
+                          shows: true,
+                          dianzan: false
+                        });
                       },
                       fail: function (res) {
                         // fail
@@ -786,8 +820,8 @@ Page({
                       }
                     }); 
                   }
-                }
-              })
+                // }
+              // })
             }
           })
         } else {
@@ -795,6 +829,7 @@ Page({
         }
       }
     });
+    
   },
   //有余额支付function
   balancePay:function(){

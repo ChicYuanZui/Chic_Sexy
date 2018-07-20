@@ -31,6 +31,12 @@ Page({
    */
   onLoad: function(e) {
     const self = this;
+    wx.showLoading({
+      title: '正在加载'
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
     wx.getSystemInfo({
       success: function (res) {
         self.setData({
