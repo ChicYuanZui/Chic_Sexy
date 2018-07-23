@@ -39,6 +39,7 @@ Page({
     var that = this
     //  重置操作状态
     that.setData({
+      box:[],
       last_id: 0,
       next_data: 'yes'
     });
@@ -62,13 +63,12 @@ Page({
 });
 
 function get_list(that, complete_fun) {
-  console.log(that)
-  
+  // console.log(that)
   // 判断是否可以拉取数据
   if (that.data.next_data == 'yes'){
    
     wx.request({
-      url: "https://stu.chicyuanzui.com/stunner/photoh/get_list",
+      url: "https://stu.chicyuanzui.com/stunner/photoh/get_lists",
       method: "GET",
       data: {
         nums: that.data.nums,
